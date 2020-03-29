@@ -1,7 +1,7 @@
 PImage bg,soil,groundhog,life,soldier,robot;
 
 int soldierX, soldierY,robotX,robotY;
-int laserMove=0,grid=80;
+int laserMove=0;
 
 void setup(){
   
@@ -64,11 +64,9 @@ void draw(){
   
   
   //Laser
-  if (laserMove>-(grid*2+25)){
+  if (laserMove>-(80*2+25)){
     laserMove-=2;
-  }else{
-    laserMove=0;
-  }
+  }else{laserMove=0;}
   
   stroke(255,0,0);
   strokeWeight(10);
