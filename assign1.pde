@@ -16,11 +16,11 @@ void setup(){
   
   
   soldierX=0;
-  soldierY=(floor(random(4))+1)*80+80;
+  soldierY=floor(random(4))*80+160;
   
   
   robotX=floor(random(160,560));
-  robotY=(floor(random(4))+1)*80+80;
+  robotY=floor(random(4))*80+160;
   
  
 }
@@ -63,13 +63,13 @@ void draw(){
   image(robot,robotX,robotY);
   
   
-  //Laser
-  if (laserMove>-(80*2+25)){
-    laserMove-=2;
-  }else{laserMove=0;}
-  
+  //drawLaser
   stroke(255,0,0);
   strokeWeight(10);
   line(robotX+10+laserMove,robotY+37,robotX+25+laserMove,robotY+37);
   
+  //letLaserMove
+  if (laserMove>-185){
+    laserMove-=2;
+  }else{laserMove=0;}
 }
