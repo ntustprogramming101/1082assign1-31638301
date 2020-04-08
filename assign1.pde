@@ -1,7 +1,7 @@
 PImage bg,soil,groundhog,life,soldier,robot;
 
 int soldierX, soldierY,robotX,robotY;
-int laserMove=0;
+int laserMove=0,laserMoveY=0;
 
 void setup(){
   
@@ -38,7 +38,7 @@ void draw(){
   
   noStroke();
   fill(255,255,0);
-  ellipse(590,50,125,125);
+  ellipse(590,50,130,130);
   
   noStroke();
   fill(253,184,19);
@@ -56,8 +56,16 @@ void draw(){
   
   //soldier
   image(soldier,soldierX,soldierY);
+  
+  
+  //soldierMove
   soldierX=soldierX+5;
-  soldierX%=640;
+  //soldierX%=640;
+  if (soldierX > 640){
+    soldierX = -100 ;
+  }
+
+  
   
   //robot
   image(robot,robotX,robotY);
@@ -66,10 +74,15 @@ void draw(){
   //drawLaser
   stroke(255,0,0);
   strokeWeight(10);
-  line(robotX+10+laserMove,robotY+37,robotX+25+laserMove,robotY+37);
+  line(robotX+15+laserMove,robotY+37,robotX+55+laserMove+laserMoveY,robotY+37);
   
   //letLaserMove
   if (laserMove>-185){
     laserMove-=2;
-  }else{laserMove=0;}
-}
+  }else{laserMove=-25;}
+  }
+  
+
+ 
+
+ 
